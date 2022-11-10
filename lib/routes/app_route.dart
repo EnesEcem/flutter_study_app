@@ -7,16 +7,17 @@ import '../screens/splash/splash_screens.dart';
 
 class AppRoutes {
   static List<GetPage> routes() => [
-        GetPage(name: "/", page: () => SplashScreen()),
+        GetPage(name: "/", page: () => const SplashScreen()),
         GetPage(
           name: "/introduction",
-          page: () => AppIntroductionScreen(),
+          page: () => const AppIntroductionScreen(),
         ),
         GetPage(
-            name: "/home",
-            page: () => HomeScreen(),
-            binding: BindingsBuilder(() {
-              Get.put(QuestionPaperController());
-            })),
+          name: "/home",
+          page: () => const HomeScreen(),
+          binding: BindingsBuilder(() {
+            Get.put(QuestionPaperController());
+          }),
+        ),
       ];
 }

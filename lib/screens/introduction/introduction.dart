@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_study_app/routes/app_route.dart';
 import 'package:get/get.dart';
-
 import '../../configs/themes/app_colors.dart';
 import '../../controllers/question_paper/question_paper_controller.dart';
-import '../../widgets/app_circle_button.dart';
 import '../home/home_screen.dart';
 
 class AppIntroductionScreen extends StatelessWidget {
@@ -12,12 +10,12 @@ class AppIntroductionScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    QuestionPaperController _questionPaperController =
+    QuestionPaperController quizPprController =
         Get.put(QuestionPaperController());
 
     return Scaffold(
       body: Container(
-        decoration: BoxDecoration(gradient: mainGradient(context)),
+        decoration: BoxDecoration(gradient: mainGradient()),
         alignment: Alignment.center,
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: Get.width * 0.2),
@@ -35,10 +33,9 @@ class AppIntroductionScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               SizedBox(height: 40),
-              AppCircleButton(
-                onTap: () => null,
-                child: Icon(Icons.arrow_forward, size: 35),
-              ),
+              IconButton(
+                  onPressed: () => Get.offAndToNamed("/home"),
+                  icon: Icon(Icons.arrow_forward, size: 35))
             ],
           ),
         ),

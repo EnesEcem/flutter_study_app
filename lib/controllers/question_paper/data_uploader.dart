@@ -3,9 +3,10 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_study_app/firebase_ref/loading_status.dart';
 import 'package:flutter_study_app/firebase_ref/references.dart';
-import 'package:flutter_study_app/models/questions_paper_model.dart';
 import 'package:get/get.dart';
 import 'dart:convert';
+
+import '../../Models/question_paper_model.dart';
 
 class DataUploader extends GetxController {
   @override
@@ -35,7 +36,8 @@ class DataUploader extends GetxController {
       String stringPaperContent = await rootBundle.loadString(paper);
       questionPapers
           .add(QuestionPaperModel.fromJson(json.decode(stringPaperContent)));
-    } // print('Items number ${questionPapers[0].description}');
+    }
+    print('Items number ${questionPapers[0].description}');
 
     var batch = fireStore.batch();
 
